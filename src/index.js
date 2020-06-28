@@ -42,14 +42,20 @@ class Mailchimp extends React.Component {
     const { status } = this.state;
     return (
       <form onSubmit={this.handleSubmit.bind(this)} className={className}>
-        <label>{label}</label>
         {fields.map(input =>
-          <input
-            {...input}
-            key={input.name}
-            onChange={({ target }) => this.setState({ [input.name]: target.value })}
-            defaultValue={this.state[input.name]}
-          />
+          <div>
+            <label for={input.for}>{input.label}</label>
+            <div>
+              <input
+                {...input}
+                key={input.name}
+                name={input.for}
+                label={input.label}
+                onChange={({ target }) => this.setState({ [input.name]: target.value })}
+                defaultValue={this.state[input.name]}
+              />
+            </div>
+          </div>
         )}
         <button
           disabled={status === "sending" || status === "success"}
@@ -80,7 +86,7 @@ Mailchimp.defaultProps = {
     button: "Subscribe!"
   },
   buttonClassName: "",
-  label: "",
+  label: "Email Address",
   styles: {
     sendingMsg: {
       color: "#0652DD"
@@ -103,7 +109,8 @@ Mailchimp.propTypes = {
   fields: PropTypes.array,
   styles: PropTypes.object,
   className: PropTypes.string,
-  buttonClassName: PropTypes.string
+  buttonClassName: PropTypes.string,
+  label: PropTypes.string
 };
 
 export default Mailchimp;
