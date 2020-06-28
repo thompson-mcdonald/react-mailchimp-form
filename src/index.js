@@ -34,7 +34,7 @@ class Mailchimp extends React.Component {
   }
 
   render() {
-    const { fields, styles, className, buttonClassName } = this.props;
+    const { fields, styles, className, buttonClassName, label } = this.props;
     const messages = {
       ...Mailchimp.defaultProps.messages,
       ...this.props.messages
@@ -42,6 +42,7 @@ class Mailchimp extends React.Component {
     const { status } = this.state;
     return (
       <form onSubmit={this.handleSubmit.bind(this)} className={className}>
+        <label>{label}</label>
         {fields.map(input =>
           <input
             {...input}
@@ -79,6 +80,7 @@ Mailchimp.defaultProps = {
     button: "Subscribe!"
   },
   buttonClassName: "",
+  label: "",
   styles: {
     sendingMsg: {
       color: "#0652DD"
