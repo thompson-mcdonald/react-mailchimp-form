@@ -43,18 +43,16 @@ class Mailchimp extends React.Component {
     return (
       <form onSubmit={this.handleSubmit.bind(this)} className={className}>
         {fields.map(input =>
+          <label for={input.forAttr}>{input.label}</label>
           <div>
-            <label for={input.for}>{input.label}</label>
-            <div>
-              <input
-                {...input}
-                key={input.name}
-                name={input.for}
-                label={input.label}
-                onChange={({ target }) => this.setState({ [input.name]: target.value })}
-                defaultValue={this.state[input.name]}
-              />
-            </div>
+            <input
+              {...input}
+              key={input.name}
+              name={input.forAttr}
+              label={input.label}
+              onChange={({ target }) => this.setState({ [input.name]: target.value })}
+              defaultValue={this.state[input.name]}
+            />
           </div>
         )}
         <button
