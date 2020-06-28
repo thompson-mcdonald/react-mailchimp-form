@@ -48,6 +48,7 @@ class Mailchimp extends React.Component {
             <input
               {...input}
               key={input.name}
+              id={input.forAttr}
               name={input.forAttr}
               label={input.label}
               onChange={({ target }) => this.setState({ [input.name]: target.value })}
