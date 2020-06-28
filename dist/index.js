@@ -184,23 +184,19 @@
               null,
               _react2.default.createElement(
                 "label",
-                { "for": input.for },
+                { "for": input.forAttr },
                 input.label
               ),
-              _react2.default.createElement(
-                "div",
-                null,
-                _react2.default.createElement("input", _extends({}, input, {
-                  key: input.name,
-                  name: input.for,
-                  label: input.label,
-                  onChange: function onChange(_ref2) {
-                    var target = _ref2.target;
-                    return _this4.setState(_defineProperty({}, input.name, target.value));
-                  },
-                  defaultValue: _this4.state[input.name]
-                }))
-              )
+              _react2.default.createElement("input", _extends({}, input, {
+                key: input.name,
+                name: input.forAttr,
+                label: input.label,
+                onChange: function onChange(_ref2) {
+                  var target = _ref2.target;
+                  return _this4.setState(_defineProperty({}, input.name, target.value));
+                },
+                defaultValue: _this4.state[input.name]
+              }))
             );
           }),
           _react2.default.createElement(
