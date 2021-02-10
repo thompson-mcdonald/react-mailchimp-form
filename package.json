@@ -1,6 +1,6 @@
 {
   "name": "react-verlay-mailchimp-form",
-  "version": "1.0.15",
+  "version": "1.0.16",
   "description": "React subscribe form for Mailchimp",
   "main": "dist/index.js",
   "scripts": {
