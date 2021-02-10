@@ -61,7 +61,8 @@ class Mailchimp extends React.Component {
           type="submit"
           className={buttonClassName}
         >
-          {messages.button}
+          {input.buttonText && input.buttonText}
+          {!input.buttonText && "Subscribe"}
         </button>
         <div className='msg-alert'>
           {status === "sending" && <p style={styles.sendingMsg}>{messages.sending}</p>}
@@ -108,7 +109,8 @@ Mailchimp.propTypes = {
   fields: PropTypes.array,
   styles: PropTypes.object,
   className: PropTypes.string,
-  buttonClassName: PropTypes.string
+  buttonClassName: PropTypes.string,
+  buttonText: PropTypes.string
 };
 
 export default Mailchimp;
